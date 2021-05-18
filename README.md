@@ -7,7 +7,7 @@
 services.AddServiceBusMessageSender();
 ```
 
-## Action
+## Controller - Action
 
 ```c#
 
