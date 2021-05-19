@@ -11,10 +11,22 @@ services.AddServiceBusMessageSender();
 
 ```c#
 
-       using ServiceBus.MessageSender.Lib;
-       
-       
-       [HttpGet]
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using ServiceBus.MessageSender.Lib;
+
+namespace ServiceBus.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class AzureController : ControllerBase
+    {
+        
+        [HttpGet]
         public async Task<IActionResult> Get([ServiceBus("Queue_Or_Topic_Name", "ServiceBusConnection")] IServiceBusMessageSender messageSender)
         {
 
@@ -25,4 +37,8 @@ services.AddServiceBusMessageSender();
 
             return Ok();
         }
+
+    }
+}
+
 ```
